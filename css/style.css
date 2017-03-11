@@ -1,0 +1,92 @@
+html {
+    background: linear-gradient(128deg,#66ffcc, #ff6200);
+    background-repeat: no-repeat;
+}
+
+html,body {
+    font-family:'Quicksand', sans-serif;
+}
+
+.edfora-logo {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.mdl-card {
+    margin: 10px;
+    width: auto;
+    min-height: auto;
+}
+
+.mdl-textfield {
+    width: 80vw;
+}
+
+.mdl-badge {
+    color: #757575;
+}
+
+a {
+    text-decoration: none;
+    /*display: block;*/
+    max-width: 100%;
+}
+
+span a {
+    color: #828282;
+}
+
+span {
+    font-size: 0.9rem;
+
+}
+
+.ctr {
+    padding: 5px;
+}
+
+.mdl-card__title {
+    flex-direction: column;
+    align-items: flex-start; 
+    flex-wrap: wrap;
+}
+
+.news-card {
+    background: linen;
+}
+
+.news-heading {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media only screen and (min-width: 768px) {
+    .page-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around
+    }
+    .page-content div {
+        flex: 1 1 auto;
+    }
+
+    .mdl-card__title {
+        display: flex;
+        flex-wrap: wrap
+    }
+
+    .news-card {
+        max-width: 30vw;
+    }
+}
+
+@media only screen and (max-width: 408px) {
+    .mdl-textfield {
+        width: 70vw;
+    }
+}
+
+
+ 

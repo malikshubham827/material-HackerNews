@@ -63,12 +63,12 @@ span {
 }
 
 @media only screen and (min-width: 768px) {
-    .page-content {
+    .page-content .list{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around
     }
-    .page-content div {
+    .page-content .list div {
         flex: 1 1 auto;
     }
 
@@ -85,6 +85,10 @@ span {
 @media only screen and (max-width: 408px) {
     .mdl-textfield {
         width: 70vw;
+    }
+
+    .logo-hn {
+        width: 90vw;
     }
 }
 

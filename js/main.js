@@ -40,6 +40,7 @@ $(document).ready(function () {
         for (var i = 1; i < data.length; i++) {
             processTime(data[i].created_at);
             var parameters = {
+                createdAt: data[i].created_at,
                 id: data[i].id,
                 newsCounter: i,
                 title: data[i].title,
@@ -53,8 +54,45 @@ $(document).ready(function () {
             var template = $('#hn-card').html();
             var html = Mustache.render(template, parameters);
             // if(i==1)    console.log(html);
-            $('.page-content').append(html);
+            $('.list').append(html);
             // console.log(relativeTimeArr);
         }
+
+        var options = {
+            valueNames: ['relativeTime', 'num_comments', 'num_points', 'title']
+        };
+        var listObj = new List('list-wrapper', options);
+        // console.log(listObj);
+        // console.log(listObj.get('num_comments', 12));
+        // console.log(listObj.search('You'));
+        $('[data-sort="num_comments"]').click(function(){
+            // console.log('hello');
+            var text = $(this).children()[0].innerHTML;
+            if (text === "arrow_upward") {
+                $(this).children()[0].innerHTML = "arrow_downward";
+            } else {
+                $(this).children()[0].innerHTML = "arrow_upward";
+            }
+        });
+
+        $('[data-sort="num_points"]').click(function(){
+            // console.log('hello');
+            var text = $(this).children()[0].innerHTML;
+            if (text === "arrow_upward") {
+                $(this).children()[0].innerHTML = "arrow_downward";
+            } else {
+                $(this).children()[0].innerHTML = "arrow_upward";
+            }
+        });
+
+        $('[data-sort="relativeTime"]').click(function(){
+            // console.log('hello');
+            var text = $(this).children()[0].innerHTML;
+            if (text === "arrow_upward") {
+                $(this).children()[0].innerHTML = "arrow_downward";
+            } else {
+                $(this).children()[0].innerHTML = "arrow_upward";
+            }
+        });
     });
 });

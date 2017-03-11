@@ -30,8 +30,9 @@
       </div>
     </header>
     <main class="mdl-layout__content">
-      <div class="page-content">
+      <div class="page-content" id="list-wrapper">
 
+        <!--Logo-->
         <div class="mdl-card mdl-shadow--4dp edfora-logo">
           <div class="mdl-card__title">
             <img class="logo-hn" src="assets/image.png">
@@ -40,47 +41,61 @@
             </div>
           </div>
         </div>
-
+        <!--Search Icon-->
         <div class="mdl-card mdl-shadow--4dp">
           <div class="mdl-card__title">
             <form action="#">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="sample3">
+                <input class="mdl-textfield__input search" type="text" id="sample3">
                 <label class="mdl-textfield__label" for="sample3">Search (by name)</label>
               </div>
               <i class="material-icons">search</i>
-
             </form>
+          </div>
+          <div class="mdl-card__supporting-text">
+            <span>Sort:</span>
+            <!-- Accent-colored raised button with ripple -->
+            <button class="sort mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" data-sort="num_comments">Comments <i class="material-icons">swap_vert</i></button>
+            <!-- Accent-colored raised button with ripple -->
+            <button class="sort mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" data-sort="num_points">Points <i class="material-icons">swap_vert</i></button>
+            <!-- Accent-colored raised button with ripple -->
+            <button class="sort mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" data-sort="relativeTime">Time <i class="material-icons">swap_vert</i></button>
           </div>
 
         </div>
 
+        <div class="list">
+
+        </div>
       </div>
     </main>
   </div>
 
   <script id="hn-card" type="text/template">
-    <div class="mdl-card mdl-shadow--4dp news-card">
+    <div class="mdl-card mdl-shadow--4dp news-card" id="{{id}}">
       <div class="mdl-card__title">
         <div>
           <span class="ctr">{{newsCounter}}</span>
           <a href="{{url}}" target="_blank"><img src="assets/grayarrow.gif"></a>
         </div>
 
-        <div class="news-heading"><a href="{{url}}" target="_blank">{{title}}</a><span>(<a href="{{url}}" target="_blank">{{domain}}</a>)</span></div>
+        <div class="news-heading"><a href="{{url}}" target="_blank" class="title">{{title}}</a><span>(<a href="{{url}}" target="_blank">{{domain}}</a>)</span></div>
       </div>
       <div class="mdl-card__supporting-text">
-        <p>
-          {{num_points}} points by <a href="https://news.ycombinator.com/user?id={{author}}" target="_blank">{{author}}</a> {{relativeTime}}
-          ago
+        <p class="num_points">
+          {{num_points}} points by
+          <a href="https://news.ycombinator.com/user?id={{author}}" target="_blank">{{author}}</a>
+          <span class="timeDiff">{{relativeTime}}</span> ago <span style="display: none;" class="relativeTime">{{createdAt}}</span>
         </p>
         <a href="https://news.ycombinator.com/item?id={{id}}" target="_blank">
           <i class="material-icons mdl-badge mdl-badge--overlap" data-badge="{{num_comments}}">question_answer</i>
+          <span style="display: none;" class="num_comments">{{num_comments}}</span>
         </a>
       </div>
     </div>
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="js/lib/list.js"></script>
   <script src="js/main.js"></script>
   <script src="js/lib/mustache.js"></script>
   <script src="js/lib/moment.js"></script>
